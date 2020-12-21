@@ -6,7 +6,7 @@ public class SettingsManager {
 
     public final String messagePrefix = EnumChatFormatting.DARK_GRAY + "[" + EnumChatFormatting.LIGHT_PURPLE + "LabyMatch" + EnumChatFormatting.DARK_GRAY + "] " + EnumChatFormatting.GRAY;
     public boolean serverResponding = false;
-    public Boolean joinMessage = false;
+    public Boolean joinMessage = true;
 
     public boolean onServer = false;
 
@@ -20,20 +20,16 @@ public class SettingsManager {
         return isNewerVersion;
     }
 
+    public boolean backup = false;
+
+    public boolean isAlready = false;
+
 
     /* playerInformations */
 
     public String gender;
     public String intress;
     public String age;
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getIntress() {
-        return intress;
-    }
 
     public String getAge() {
         return age;
