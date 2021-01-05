@@ -6,6 +6,9 @@ public enum IntressEnum {
     BEDWARS,
     SG,
     EG,
+    TTT,
+    ONEvsONE,
+    MASTERBUILDERS,
     COMMUNITY;
 
     IntressEnum() {}

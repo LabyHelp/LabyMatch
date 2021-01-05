@@ -34,14 +34,16 @@ public class MessageSendListener implements MessageSendEvent {
 
             return true;
         } else if (s.startsWith("/lhhelp")) {
-
             LabyMatch.getInstace().sendClientMessage("/labymatch");
 
             return true;
         } else if (s.startsWith("/labymr")) {
-            LabyMatch.getInstace().getMatchManager().sendQuery();
-            LabyMatch.getInstace().getMatchManager().readMatch(true);
-            LabyMatch.getInstace().sendClientMessage("Reload!");
+            if (LabyMatch.getInstace().getSettingsManager().isQuering) {
+                LabyMatch.getInstace().getMatchManager().sendQuery();
+                LabyMatch.getInstace().getMatchManager().readMatch(true);
+                LabyMatch.getInstace().sendClientMessage("Reload!");
+                return true;
+            }
         }
 
         return false;

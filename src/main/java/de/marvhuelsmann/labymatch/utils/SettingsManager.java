@@ -14,7 +14,7 @@ public class SettingsManager {
         return serverResponding;
     }
 
-    public String currentVersion = "1.0";
+    public String currentVersion = "1.1";
     public Boolean isNewerVersion = false;
     public boolean isNewerVersion() {
         return isNewerVersion;
@@ -23,7 +23,6 @@ public class SettingsManager {
     public boolean backup = false;
 
     public boolean isAlready = false;
-
 
     /* playerInformations */
 
