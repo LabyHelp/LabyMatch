@@ -1,5 +1,6 @@
 package de.labyhelp.addon.labymatch.listener;
 
+import de.labyhelp.addon.LabyHelp;
 import de.labyhelp.addon.labymatch.LabyMatch;
 import net.labymod.api.events.MessageSendEvent;
 import net.labymod.main.LabyMod;
@@ -11,11 +12,12 @@ public class MessageSendListener implements MessageSendEvent {
 
         if (s.startsWith("/labymatch")) {
             if (!LabyMatch.getInstace().getSettingsManager().age.equals("") || !LabyMatch.getInstace().getSettingsManager().intress.equals("") || !LabyMatch.getInstace().getSettingsManager().gender.equals("")) {
-                LabyMatch.getInstace().sendClientMessage("§cSearching...");
+                LabyHelp.getInstance().sendTranslMessage("labymatch.searching");
+
                 LabyMatch.getInstace().getExecutor().submit(new Runnable() {
                     @Override
                     public void run() {
-                        LabyMatch.getInstace().sendClientMessage("§c...");
+                        LabyMatch.getInstace().sendClientMessage("...");
 
                         LabyMatch.getInstace().getPlayerHandler().quitMatch(LabyMod.getInstance().getPlayerUUID());
 
@@ -29,7 +31,7 @@ public class MessageSendListener implements MessageSendEvent {
                     }
                 });
             } else {
-                LabyMatch.getInstace().sendClientMessage("You first have to go to the LabyHelp settings and complete your profile!");
+                LabyHelp.getInstance().sendTranslMessage("labymatch.settings");
             }
 
             return true;
@@ -41,7 +43,7 @@ public class MessageSendListener implements MessageSendEvent {
             if (LabyMatch.getInstace().getSettingsManager().isQuering) {
                 LabyMatch.getInstace().getMatchManager().sendQuery();
                 LabyMatch.getInstace().getMatchManager().readMatch(true);
-                LabyMatch.getInstace().sendClientMessage("Reload!");
+                LabyHelp.getInstance().sendTranslMessage("labymatch.reload");
                 return true;
             }
         }

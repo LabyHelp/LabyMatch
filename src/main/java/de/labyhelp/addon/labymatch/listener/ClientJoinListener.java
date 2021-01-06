@@ -1,5 +1,6 @@
 package de.labyhelp.addon.labymatch.listener;
 
+import de.labyhelp.addon.LabyHelp;
 import de.labyhelp.addon.labymatch.LabyMatch;
 import net.labymod.utils.ServerData;
 
@@ -13,7 +14,7 @@ public class ClientJoinListener implements Consumer<ServerData>, net.labymod.uti
     public void accept(ServerData serverData) {
         LabyMatch.getInstace().getSettingsManager().onServer = true;
         if (LabyMatch.getInstace().getSettingsManager().joinMessage) {
-            String message = "With /labymatch you can find a game partner! With the new LabyMatch addon";
+            String message = LabyHelp.getInstance().getTranslationManager().getTranslation("labymatch.adversting");
 
             switch (i) {
                 case 2:
@@ -23,7 +24,7 @@ public class ClientJoinListener implements Consumer<ServerData>, net.labymod.uti
                 case 9:
                 case 12:
                     LabyMatch.getInstace().sendClientMessage(message);
-                    LabyMatch.getInstace().sendClientMessage("You can turn off these messages in the settings");
+                    LabyHelp.getInstance().sendTranslMessage("labymatch.turnoff");;
                     break;
             }
 

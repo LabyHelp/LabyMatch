@@ -1,5 +1,6 @@
 package de.labyhelp.addon.labymatch.utils;
 
+import de.labyhelp.addon.LabyHelp;
 import de.labyhelp.addon.labymatch.LabyMatch;
 import net.labymod.main.LabyMod;
 import net.minecraft.util.EnumChatFormatting;
@@ -69,7 +70,7 @@ public class MatchManager {
                         }
                     }
                 } else {
-                    LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.RED + "Error");
+                    LabyHelp.getInstance().sendTranslMessage("main.error");
                 }
             }
         } catch (IOException e) {
@@ -95,9 +96,9 @@ public class MatchManager {
                             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                             clipboard.setContents(stringSelection, null);
 
-                            LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.WHITE + "You have an TeamPartner " + EnumChatFormatting.BOLD + list.getValue() + " (save in Clipboard)");
+                            LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.WHITE + LabyHelp.getInstance().getTranslationManager().getTranslation("labymatch.teampartner") + " " + EnumChatFormatting.BOLD + list.getValue() + " " + LabyHelp.getInstance().getTranslationManager().getTranslation("main.clipboard"));
                             LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.WHITE + "You can add the player as a LabyMod friend");
-                            LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.BOLD + "Or his Profile Page for Contact:" + EnumChatFormatting.GRAY + " https://labyhelp.de/profile?uuid=" + list.getKey() + "&name=" + list.getValue());
+                            LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.BOLD + LabyHelp.getInstance().getTranslationManager().getTranslation("labymatch.contact") + EnumChatFormatting.GRAY + " https://labyhelp.de/profile?uuid=" + list.getKey() + "&name=" + list.getValue());
                         }
                     } else {
                         LabyMatch.getInstace().sendClientMessage(EnumChatFormatting.RED + "Error:" + list.getValue());

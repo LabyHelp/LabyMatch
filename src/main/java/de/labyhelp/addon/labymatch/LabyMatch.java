@@ -1,6 +1,5 @@
 package de.labyhelp.addon.labymatch;
 
-import de.labyhelp.addon.LabyHelp;
 import de.labyhelp.addon.labymatch.enums.GenderEnum;
 import de.labyhelp.addon.labymatch.enums.IntressEnum;
 import de.labyhelp.addon.labymatch.enums.ModuleEnum;
@@ -11,7 +10,6 @@ import de.labyhelp.addon.labymatch.listener.MessageSendListener;
 import de.labyhelp.addon.labymatch.utils.MatchManager;
 import de.labyhelp.addon.labymatch.utils.PlayerHandler;
 import de.labyhelp.addon.labymatch.utils.SettingsManager;
-import de.labyhelp.addon.labymatch.utils.Updater;
 import net.labymod.api.LabyModAddon;
 import net.labymod.gui.elements.DropDownMenu;
 import net.labymod.main.LabyMod;
@@ -33,7 +31,6 @@ public class LabyMatch extends LabyModAddon {
 
     private static LabyMatch instace;
 
-    private final Updater updater = new Updater();
     private final MatchManager matchManager = new MatchManager();
     private final SettingsManager settingsManager = new SettingsManager();
     private final PlayerHandler playerHandler = new PlayerHandler();
@@ -60,13 +57,6 @@ public class LabyMatch extends LabyModAddon {
         this.getApi().getEventManager().registerOnJoin(new ClientJoinListener());
         this.getApi().getEventManager().registerOnQuit(new ClientQuitListener());
         this.getApi().getEventManager().register(new MessageSendListener());
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            LabyMatch.getInstace().getPlayerHandler().quitMatch(LabyMod.getInstance().getPlayerUUID());
-            if (LabyMatch.getInstace().getSettingsManager().isNewerVersion()) {
-                LabyMatch.getInstace().getUpdater().update();
-            }
-        }));
     }
 
     @Override
@@ -93,10 +83,6 @@ public class LabyMatch extends LabyModAddon {
 
     public ExecutorService getExecutor() {
         return threadPool;
-    }
-
-    public Updater getUpdater() {
-        return updater;
     }
 
     public MatchManager getMatchManager() {
