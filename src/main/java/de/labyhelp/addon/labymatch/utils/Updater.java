@@ -1,4 +1,4 @@
-package de.marvhuelsmann.labymatch.utils;
+package de.labyhelp.addon.labymatch.utils;
 
 import net.labymod.addon.AddonLoader;
 import org.apache.commons.io.FileUtils;

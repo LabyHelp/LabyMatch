@@ -1,6 +1,6 @@
-package de.marvhuelsmann.labymatch.listener;
+package de.labyhelp.addon.labymatch.listener;
 
-import de.marvhuelsmann.labymatch.LabyMatch;
+import de.labyhelp.addon.labymatch.LabyMatch;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 

@@ -1,7 +1,7 @@
 {
   "uuid": "%uuid%",
   "name": "LabyMatch",
-  "mainClass": "de.marvhuelsmann.labymatch.LabyMatch",
+  "mainClass": "de.labyhelp.addon.labymatch.LabyMatch",
   "description": "A feature to find new people like you",
   "version": 1.0,
   "author": "LabyHelp Store",

@@ -1,4 +1,4 @@
-package de.marvhuelsmann.labymatch.enums;
+package de.labyhelp.addon.labymatch.enums;
 
 public enum ModuleEnum {
 

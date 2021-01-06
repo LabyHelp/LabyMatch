@@ -1,6 +1,6 @@
-package de.marvhuelsmann.labymatch.utils;
+package de.labyhelp.addon.labymatch.utils;
 
-import de.marvhuelsmann.labymatch.LabyMatch;
+import de.labyhelp.addon.labymatch.LabyMatch;
 import net.labymod.main.LabyMod;
 import net.minecraft.util.EnumChatFormatting;
 import org.apache.commons.io.IOUtils;
