@@ -5,8 +5,8 @@ buildscript {
         mavenCentral()
         jcenter()
         maven {
-            name "forge"
-            url "http://files.minecraftforge.net/maven"
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
         }
     }
     dependencies {
@@ -19,18 +19,18 @@ plugins {
     id 'java'
 }
 
-repositories {
-    maven {
-        name "GitHubPackages"
-        url "https://maven.pkg.github.com/labyhelp/labyhelp"
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-        }
-    }
-}
+version = "1.0.0"
+group = "de.labyhelp.LabyMatch" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
-apply plugin: 'net.minecraftforge.gradle.forge'
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    apply plugin: 'net.minecraftforge.gradle.forge'
+}
 
 /*
 // for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
@@ -38,9 +38,6 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.0"
-group = "de.labyhelp.addon" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "LabyMatch"
 
 minecraft {
     version = "1.8.9-11.15.1.1855"
@@ -49,7 +46,7 @@ minecraft {
 }
 
 dependencies {
-    implementation('de.labyhelp.addon:labyhelp:2.5.6')
+    implementation 'de.labyhelp:addon:2.5.6'
 }
 
 minecraft {
