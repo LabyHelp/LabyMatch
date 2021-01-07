@@ -57,6 +57,14 @@ public class LabyMatch extends LabyModAddon {
         this.getApi().getEventManager().registerOnJoin(new ClientJoinListener());
         this.getApi().getEventManager().registerOnQuit(new ClientQuitListener());
         this.getApi().getEventManager().register(new MessageSendListener());
+
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LabyMatch.getInstace().getPlayerHandler().quitMatch(LabyMod.getInstance().getPlayerUUID());
+            }
+        }));
     }
 
     @Override
