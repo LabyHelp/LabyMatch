@@ -1,5 +1,6 @@
 package de.labyhelp.addon.labymatch;
 
+import de.labyhelp.addon.LabyHelp;
 import de.labyhelp.addon.labymatch.enums.GenderEnum;
 import de.labyhelp.addon.labymatch.enums.IntressEnum;
 import de.labyhelp.addon.labymatch.enums.ModuleEnum;
@@ -62,7 +63,7 @@ public class LabyMatch extends LabyModAddon {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                LabyMatch.getInstace().getPlayerHandler().quitMatch(LabyMod.getInstance().getPlayerUUID());
+                LabyMatch.getInstace().getPlayerHandler().quitMatch();
             }
         }));
     }

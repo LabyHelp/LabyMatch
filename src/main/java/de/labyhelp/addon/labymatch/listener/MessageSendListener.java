@@ -19,7 +19,7 @@ public class MessageSendListener implements MessageSendEvent {
                     public void run() {
                         LabyMatch.getInstace().sendClientMessage("...");
 
-                        LabyMatch.getInstace().getPlayerHandler().quitMatch(LabyMod.getInstance().getPlayerUUID());
+                        LabyMatch.getInstace().getPlayerHandler().quitMatch();
 
                         LabyMatch.getInstace().getSettingsManager().isQuering = true;
                         LabyMatch.getInstace().getSettingsManager().backup = false;
